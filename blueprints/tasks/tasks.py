@@ -1,8 +1,8 @@
-from extensions import db
+from database.connection import db
 from flask import Blueprint,request
 from helpers.helpers import *
 from datetime import datetime
-from models import *
+from database.models import *
 
 bp = Blueprint('tasks', __name__)
 

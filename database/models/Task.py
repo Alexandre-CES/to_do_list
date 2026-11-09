@@ -1,7 +1,7 @@
-from extensions import db
+from database.connection import db, Base
 from datetime import datetime
 
-class Task(db.Model):
+class Task(Base):
     __tablename__ = 'tasks'
     task_id = db.Column(db.Integer, primary_key=True, unique=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)

@@ -1,5 +1,5 @@
-from extensions import db
-from models import User
+from database.connection import db
+from database.models import User
 from flask import Blueprint, request, redirect, url_for, session, make_response
 from werkzeug.security import check_password_hash, generate_password_hash
 from helpers.helpers import *

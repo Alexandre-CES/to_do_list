@@ -3,14 +3,16 @@ from flask_session import Session
 from configs.config import Config
 from werkzeug.exceptions import default_exceptions
 from helpers.helpers import login_required, apology
-from models import *
-from extensions import db
+from database.models import *
+from database.connection import db, Base, engine
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
 db.init_app(app)
 Session(app)
+
+Base.metadata.create_all(engine)
 
 # Registrar os blueprints
 from blueprints.account.account import bp as account_bp
@@ -47,6 +49,7 @@ for code, exception in default_exceptions.items():
 @app.errorhandler(403)
 def handle_403_error(error):
     return apology('Credenciais inválidas', 403)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

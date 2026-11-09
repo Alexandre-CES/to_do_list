@@ -1,6 +1,6 @@
 from flask import Blueprint,request, redirect, url_for, session, render_template
-from extensions import db
-from models import *
+from database.connection import db
+from database.models import *
 from helpers.helpers import *
 
 bp = Blueprint('friends', __name__)

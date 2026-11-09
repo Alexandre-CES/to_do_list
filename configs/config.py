@@ -6,5 +6,5 @@ class Config:
     SESSION_FILE_DIR = mkdtemp() #salvar sessão no arquivo temp
     SESSION_PERMANENT = False 
     SESSION_TYPE = 'filesystem' #sessão será guardada em algum arquivo
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///tasks.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///tdl.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
