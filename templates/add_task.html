@@ -3,6 +3,7 @@
 {{ super() }}
 
  <title>Adicionar Tarefa</title> 
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/add_task.css') }}">
 {% endblock %}
 
 {% block header %}
@@ -12,7 +13,6 @@
 
 {% block main %}
 
-<div class="outside_div_top"></div>
 <section id="add_task_section">
     <form action="/add_task" method="post">
 

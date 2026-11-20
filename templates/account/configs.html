@@ -2,9 +2,8 @@
 
 {% block head %}
 {{ super() }}
-
     <title>Configs</title>
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/configs.css') }}">
 {% endblock %}
 
 {% block header %}
@@ -18,7 +17,6 @@
 {% block main %}
 {{ super() }}
 
-<div class="outside_div_top"></div>
 <section id="config_section">
     <h1>Informações do usuário</h1>
     <h2><strong>Nome:</strong> {{ user['username'] }}</h2>
@@ -26,7 +24,7 @@
     <h1>Ações</h1>
     <h2><a class="change_account_info_settings" href="{{ url_for('account.change_username') }}">Trocar nome</a></h2>
     <h2><a class="change_account_info_settings" href="{{ url_for('account.change_password') }}">Trocar senha</a></h2>
-    <h2><a id="logout" href="{{ url_for('account.logout') }}">Deslogar</a></h2>
+    <h2><a id="logout" href="{{ url_for('auth.logout') }}">Deslogar</a></h2>
 </section>
 
 {% endblock %}

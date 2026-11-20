@@ -2,6 +2,7 @@
 {% block head %}
 {{ super() }}
     <title>Adicionar Amigo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/add_friend.css') }}">
 {% endblock %}
 {% block header %}
 <h1>Adicionar Amigo</h1>
@@ -12,7 +13,6 @@
 {% block main %}
 {{ super() }}
 
-<div class="outside_div_top"></div>
 <section id="add_friends_section">
     <div id="show_requests">
         <h1>Pedidos</h1>

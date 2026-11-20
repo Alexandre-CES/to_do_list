@@ -3,48 +3,21 @@
 var sideMenu = document.querySelector('#side_menu')
 var ul = document.querySelector('#side_menu_ul')
 
-var ul_visible = true
+var ul_visible = false
 
 function hide_span(){
-    if (ul_visible == true){
-        ul.style.transition = '0s'
-        ul.style.visibility = 'hidden'
-        sideMenu.style.width = '0%'
-        ul_visible = false
-    }else{
-        ul.style.visibility = 'visible'
-        sideMenu.style.width = '60px'
-        ul.style.transition = '0.5s ease'
-        ul_visible = true
-    }
+    ul_visible = !ul_visible;
+
+    ul.style.width = ul_visible ? '50px' : '0px';
+    ul.style.minWidth = ul_visible ? '100%' : '0px';
 }
-
-//--> header
-
-function hideHeader() {
-    var header = document.getElementById("main-header");
-    header.classList.add("hidden");
-}
-
-// Função para mostrar o cabeçalho
-function showHeader() {
-    var header = document.getElementById("main-header");
-    header.classList.remove("hidden");
-}
-
-// Chamar a função para ocultar o cabeçalho assim que a página carregar
-window.onload = function() {
-    setTimeout(function() {
-        hideHeader();
-    }, 2000); // Ocultar o cabeçalho após 3 segundos (3000 milissegundos)
-};
 
 //-->Index
 function priorityColor() {
-    const taskRows = document.querySelectorAll('.table_task_tr');
+    const taskRows = document.querySelectorAll('.task_row');
 
     taskRows.forEach(row => {
-        const priority = row.querySelector('.td_priority');
+        const priority = row.querySelector('.task_priority');
 
         // Use textContent para obter o texto visível dentro da célula
         if (priority.textContent.trim() === '1') {
@@ -59,11 +32,11 @@ function priorityColor() {
 
 //remaining time
 function updateRemainingTime() {
-    const taskRows = document.querySelectorAll('.table_task_tr');
+    const taskRows = document.querySelectorAll('.task_row');
 
     taskRows.forEach(row => {
-        const startTimeText = row.querySelector('.table_datetime_start').textContent;
-        const endTimeText = row.querySelector('.table_datetime_ending').textContent;
+        const startTimeText = row.querySelector('.task_start').textContent;
+        const endTimeText = row.querySelector('.task_ending').textContent;
 
         // Formatando as datas no formato ISO 8601 (AAAA-MM-DDTHH:MM:SS)
         const startTimeISO = startTimeText.replace(/(\d{2})\/(\d{2})\/(\d{2}) (\d{2}):(\d{2})/, '20$3-$2-$1T$4:$5:00');
@@ -74,7 +47,7 @@ function updateRemainingTime() {
         const endTime = Date.parse(endTimeISO);
         const now = Date.now();
 
-        const remainingTimeCell = row.querySelector('.remaining_time_td');
+        const remainingTimeCell = row.querySelector('.task_remaining_time');
 
         if (isNaN(startTime) || isNaN(endTime)) {
             remainingTimeCell.textContent = " ";

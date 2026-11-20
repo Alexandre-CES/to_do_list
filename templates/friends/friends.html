@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block head %}
+{{ super() }}
+<title>Amigos</title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages/friends.css') }}">
+{% endblock %}
+
+{% block header %}
+<h1>Amigos</h1>
+{{ super() }}
+
+{% endblock %}
+
+<!--main-->
+{% block main %}
+<section id="friends_section">
+    <ul>
+        {% for friend in friends %}
+        <li>
+            <span id="show_friends_span">
+                <h2>{{ friend['username'] }}</h2>
+                <h3>{{ friend['user'] }}</h3>
+                <h4>{{ friend['id'] }}</h4>
+            </span>
+            <span id="see_friend_task_span">
+                <a href="/see_friend_tasks/{{ friend.id }}"><i class="bi bi-eye"></i></a>
+            </span>
+        </li>
+        
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

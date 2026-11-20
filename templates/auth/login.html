@@ -11,9 +11,9 @@
 
 {% block main %}
 
-<div class="user_form_background">
-    <div id="login" class="user_form">
-        <form action="/login" method="post" autocomplete="off">
+<div>
+    <div id="login">
+        <form action="{{ url_for('auth.login') }}" method="post" autocomplete="off">
             <div>
                 <input  required autocomplete="off" min="5" max="20" autofocus name="user" placeholder="Usuário" type="text">
             </div>
@@ -22,7 +22,7 @@
             </div>
             <button type="submit">Logar</button>
         </form>
-        <p>Não está registrado ainda? <a href="{{ url_for('account.register') }}">Registre-se</a></p>
+        <p>Não está registrado ainda? <a href="{{ url_for('auth.register') }}">Registre-se</a></p>
     </div>
 </div>
 {% endblock %}

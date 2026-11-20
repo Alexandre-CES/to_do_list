@@ -1,0 +1,81 @@
+/* User Form (register/login/change_passsword/change_username) */
+div#register{
+    width: 300px;
+    height: 320px;
+}
+
+div#login{
+    width: 300px;
+    height: 230px;
+}
+
+div.user_form_background{
+    width: 100vw;
+    height: 100vh;
+
+    background-image: linear-gradient(to bottom, var(--color3) 10%, var(--color1) 100%);
+}
+
+div.user_form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding-top: 20px;
+
+    border: 1px solid var(--color5);
+    background-image: linear-gradient(to bottom, var(--color5) 70%, var(--color4) 100%);
+}
+
+div.user_form form div{
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+}
+
+div.user_form form div input{
+    height: 40px;
+    padding: 1px 10px;
+
+    font:normal 1.2em var(--fontMenu);
+    background-color: var(--color2);
+}
+
+div.user_form form button{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+    margin: 20px 0px 10px 0px;
+
+    width: 100px;
+    height: 40px;
+
+    cursor: pointer;
+
+    background-color: var(--color2);
+}
+
+div.user_form p{
+    text-align: center;
+
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.363);
+    color: var(--color1);
+}
+
+div.user_form p a{
+    text-align: center;
+    
+    text-decoration: none;
+
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.479);
+    color: var(--color2);
+}
+
+div.user_form p a:hover{
+
+    font:bolder;
+
+    color: var(--color1);
+}

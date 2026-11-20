@@ -3,6 +3,7 @@
 {% block head %}
 {{ super() }}
     <title>Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">
 {% endblock %}
 
 <!--header-->
@@ -16,7 +17,7 @@
 {% block main %}
 {{ super() }}
 
-<div class="div_table">
+<div>
     <table>
         <thead>
             <tr>
@@ -30,13 +31,13 @@
         </thead>
         <tbody>
             {% for task in tasks %}
-                <tr class="table_task_tr">
-                    <td class="td_priority">{{task['priority']}}</td>
+                <tr class="task_row">
+                    <td class="task_priority">{{task['priority']}}</td>
                     <td>{{ task['task'] }}</td>
-                    <td class="td_description">{{ task['description'] }}</td>
-                    <td class="remaining_time_td">0</td>
-                    <td class="table_datetime_start">{{ task['start'] }}</td>
-                    <td class="table_datetime_ending">{{ task['ending'] }}</td>
+                    <td>{{ task['description'] }}</td>
+                    <td class="task_remaining_time">0</td>
+                    <td class="task_start">{{ task['start'] }}</td>
+                    <td class="task_ending">{{ task['ending'] }}</td>
                 </tr>
             {% endfor %}
         </tbody>
